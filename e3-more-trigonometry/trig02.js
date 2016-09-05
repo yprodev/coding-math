@@ -12,14 +12,13 @@ window.onload = function() {
 			
 
 			// We need some kind of base radius for our circle
-			// 		to create an animation of pulsing
-			baseRadius = 100,
+			// 		to create effect of fading of the dot
+			baseAlpha = 0.5,
 
 			// How far to move the object inside canvas
 			// Amplitude
-			// baseRadius - 50 = 50
-			// baseRadius + 50 = 150
-			offset = 50,
+			// offset for baseAlpha
+			offset = 0.5,
 			
 			// How fast to move the object back and fouth
 			// How fast we incrementing the angle so that it
@@ -36,14 +35,15 @@ window.onload = function() {
 	function render() {
 
 		// Calculating y for moving verticaly
-		var radius = baseRadius + Math.sin(angle) * offset;
+		var alpha = baseAlpha + Math.sin(angle) * offset;
 
+		context.fillStyle = "rgba(0, 0, 0, " + alpha + ")";
 		context.clearRect(0, 0, width, height);
 		// Begin the path to draw a circle
 		context.beginPath();
 
 		// Creating a circle
-		context.arc(centerX, centerY, radius, 0, Math.PI * 2, false);
+		context.arc(centerX, centerY, 40, 0, Math.PI * 2, false);
 
 		// Fill the circle
 		context.fill();
@@ -54,6 +54,8 @@ window.onload = function() {
 		// Animate with requestAnimationFrame function
 		requestAnimationFrame(render);
 	}
+
+
 };
 
 
