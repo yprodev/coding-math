@@ -10,9 +10,16 @@ window.onload = function() {
 			// point to place the object according to x axis
 			centerX = width * .5,
 			
+
+			// We need some kind of base radius for our circle
+			// 		to create an animation of pulsing
+			baseRadius = 100,
+
 			// How far to move the object inside canvas
 			// Amplitude
-			offset = height * .3,
+			// baseRadius - 50 = 50
+			// baseRadius + 50 = 150
+			offset = 50,
 			
 			// How fast to move the object back and fouth
 			// How fast we incrementing the angle so that it
@@ -21,7 +28,6 @@ window.onload = function() {
 			speed = 0.1,
 
 			// This angle we will put in the sin function
-			// 		to create an animation of moving dot
 			angle = 0;
 
 	// call render function to draw an object
@@ -30,14 +36,14 @@ window.onload = function() {
 	function render() {
 
 		// Calculating y for moving verticaly
-		var y = centerY + Math.sin(angle) * offset;
+		var radius = baseRadius + Math.sin(angle) * offset;
 
 		context.clearRect(0, 0, width, height);
 		// Begin the path to draw a circle
 		context.beginPath();
 
 		// Creating a circle
-		context.arc(centerX, y, 40, 0, Math.PI * 2, false);
+		context.arc(centerX, centerY, radius, 0, Math.PI * 2, false);
 
 		// Fill the circle
 		context.fill();
