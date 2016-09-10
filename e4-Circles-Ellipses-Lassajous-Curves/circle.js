@@ -33,39 +33,32 @@ window.onload = function() {
 			// The center of a canvas is the center of a circle
 			centerX = width / 2,
 			centerY = height / 2,
-			xRadius = 200,
-			yRadius = 400,
-			xAngle = 0,
-			yAngle = 0,
-			xSpeed = .1,
-			ySpeed = .131,
+			radius = 200,
+			angle = 0,
+			numObjects = 20,
+			slice = Math.PI * 2 / numObjects,
 			x, y;
 
 
-	render();
 
-	function render() {
 
-		// First we will clear the screen
-		context.clearRect(0, 0, width, height);
+		for (var i = 0; i < numObjects; i += 1) {
 
-		// Finding X side of the triangle
-		x = centerX + Math.cos(xAngle) * xRadius;
+			angle = i * slice;
 
-		// Finding Y side of the triangle
-		y = centerY + Math.sin(yAngle) * yRadius;
+			// Finding X side of the triangle
+			x = centerX + Math.cos(angle) * radius;
 
-		context.beginPath();
-		// Creating round dot on the sreen with radius 10
-		context.arc(x, y, 10, 0, Math.PI * 2, false);
-		context.fill();
+			// Finding Y side of the triangle
+			y = centerY + Math.sin(angle) * radius;
 
-		// Creating move of the dot
-		xAngle += xSpeed;
-		yAngle += ySpeed;
+			context.beginPath();
+			// Creating round dot on the sreen with radius 10
+			context.arc(x, y, 10, 0, Math.PI * 2, false);
+			context.fill();
 
-		requestAnimationFrame(render);
-	}
+		}
+
 
 
 };
