@@ -33,7 +33,8 @@ window.onload = function() {
 			// The center of a canvas is the center of a circle
 			centerX = width / 2,
 			centerY = height / 2,
-			radius = 200,
+			xRadius = 200,
+			yRadius = 400,
 			angle = 0,
 			speed = .01,
 			x, y;
@@ -47,10 +48,10 @@ window.onload = function() {
 		context.clearRect(0, 0, width, height);
 
 		// Finding X side of the triangle
-		x = centerX + Math.cos(angle) * radius;
+		x = centerX + Math.cos(angle) * xRadius;
 
 		// Finding Y side of the triangle
-		y = centerY + Math.sin(angle) * radius;
+		y = centerY + Math.sin(angle) * yRadius;
 
 		context.beginPath();
 		// Creating round dot on the sreen with radius 10
