@@ -35,8 +35,10 @@ window.onload = function() {
 			centerY = height / 2,
 			xRadius = 200,
 			yRadius = 400,
-			angle = 0,
-			speed = .01,
+			xAngle = 0,
+			yAngle = 0,
+			xSpeed = .1,
+			ySpeed = .131,
 			x, y;
 
 
@@ -48,10 +50,10 @@ window.onload = function() {
 		context.clearRect(0, 0, width, height);
 
 		// Finding X side of the triangle
-		x = centerX + Math.cos(angle) * xRadius;
+		x = centerX + Math.cos(xAngle) * xRadius;
 
 		// Finding Y side of the triangle
-		y = centerY + Math.sin(angle) * yRadius;
+		y = centerY + Math.sin(yAngle) * yRadius;
 
 		context.beginPath();
 		// Creating round dot on the sreen with radius 10
@@ -59,7 +61,8 @@ window.onload = function() {
 		context.fill();
 
 		// Creating move of the dot
-		angle += speed;
+		xAngle += xSpeed;
+		yAngle += ySpeed;
 
 		requestAnimationFrame(render);
 	}
