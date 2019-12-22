@@ -35,6 +35,9 @@ window.onload = function() {
 	function render() {
 
 		// Calculating y for moving verticaly
+		var y = centerY + Math.sin(angle) * offset
+
+		// Calculating alpha for blinking
 		var alpha = baseAlpha + Math.sin(angle) * offset;
 
 		context.fillStyle = "rgba(0, 0, 0, " + alpha + ")";
@@ -43,7 +46,7 @@ window.onload = function() {
 		context.beginPath();
 
 		// Creating a circle
-		context.arc(centerX, centerY, 40, 0, Math.PI * 2, false);
+		context.arc(centerX, y, 40, 0, Math.PI * 2, false);
 
 		// Fill the circle
 		context.fill();

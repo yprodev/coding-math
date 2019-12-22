@@ -34,12 +34,73 @@ window.onload = function() {
 			centerX = width / 2,
 			centerY = height / 2,
 			radius = 200,
+			xRadius = 200,
+			yRadius = 400,
 			angle = 0,
+			xAngle = 0,
+			yAngle = 0,
 			numObjects = 20,
+			speed = .01,
+			xSpeed = .023,
+			ySpeed = .015,
 			slice = Math.PI * 2 / numObjects,
-			x, y;
+			x,
+			y;
 
 
+
+		// Circling around function
+		// render1()
+		// function render1() {
+		// 	// Clear the context
+		// 	context.clearRect(0, 0, width, height)
+		// 	x = centerX + Math.cos(angle) * radius
+		// 	y = centerY + Math.sin(angle) * radius
+		// 	context.beginPath()
+		// 	context.arc(x, y, 10, 0, Math.PI * 2, false)
+		// 	context.fill()
+
+		// 	angle += speed
+		// 	requestAnimationFrame(render1)
+		// }
+
+
+
+
+		// Circling around in elipsis
+		// differentRadius()
+		// function differentRadius() {
+		// 	// Clear the context
+		// 	context.clearRect(0, 0, width, height)
+		// 	x = centerX + Math.cos(angle) * xRadius
+		// 	y = centerY + Math.sin(angle) * yRadius
+		// 	context.beginPath()
+		// 	context.arc(x, y, 10, 0, Math.PI * 2, false)
+		// 	context.fill()
+
+		// 	angle += speed
+		// 	requestAnimationFrame(differentRadius)
+		// }
+
+
+
+
+		// Circling with different speed and angle
+		// differentAngelAndRadius()
+		// function differentAngelAndRadius() {
+		// 	// Clear the context
+		// 	context.clearRect(0, 0, width, height)
+		// 	x = centerX + Math.cos(xAngle) * xRadius
+		// 	y = centerY + Math.sin(yAngle) * yRadius
+		// 	context.beginPath()
+		// 	context.arc(x, y, 10, 0, Math.PI * 2, false)
+		// 	context.fill()
+
+		// 	xAngle += xSpeed
+		// 	yAngle += ySpeed
+
+		// 	requestAnimationFrame(differentAngelAndRadius)
+		// }
 
 
 		for (var i = 0; i < numObjects; i += 1) {
