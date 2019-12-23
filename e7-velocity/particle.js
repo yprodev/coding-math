@@ -17,5 +17,3 @@ let particle = {
 		this.position.addTo(this.velocity);
 	}
 };
-
-
