@@ -8,6 +8,10 @@ window.onload = function() {
 			x: width / 2,
 			y: height / 2
 		},
+		springPoint2 = {
+			x: utils.randomRange(0, width),
+			y: utils.randomRange(0, height)
+		},
 		weight = particle.create(
 			Math.random() * width,
 			Math.random() * height,
@@ -20,6 +24,8 @@ window.onload = function() {
 
 	weight.radius = 20;
 	weight.friction = 0.9;
+	weight.addSpring(springPoint, k, springLength);
+	weight.addSpring(springPoint2, k, springLength);
 
 	document.body.addEventListener('mousemove', function(event) {
 		springPoint.x = event.clientX;
@@ -32,15 +38,6 @@ window.onload = function() {
 	function render() {
 		context.clearRect(0, 0, width, height);
 
-		let dx = springPoint.x - weight.x,
-			dy = springPoint.y - weight.y,
-			distance = Math.sqrt(dx * dx + dy * dy),
-			springForce = (distance - springLength) * k,
-			ax = dx / distance * springForce,
-			ay = dy / distance * springForce;
-
-		weight.vx += ax;
-		weight.vy += ay;
 
 		weight.update();
 
@@ -53,7 +50,8 @@ window.onload = function() {
 		context.fill();
 
 		context.beginPath()
-		context.moveTo(weight.x, weight.y)
+		context.moveTo(springPoint2.x, springPoint2.y)
+		context.lineTo(weight.x, weight.y)
 		context.lineTo(springPoint.x, springPoint.y);
 		context.stroke();
 
