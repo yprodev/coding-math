@@ -4,6 +4,15 @@ let utils = {
 	},
 
 	lerp: function(norm, min, max) {
+		// Almost the same as the Robert Penner's linearTween function
+		// for tweening animation.
+		// Math.linearTween = function(t, b, c, d) {
+		// 	// t - current time
+		// 	// b - beggining value
+		// 	// c - change in value
+		// 	// d - duration
+		// 	return c * t / d + b;
+		// }
 		return (max - min) * norm + min;
 	},
 
